@@ -2,6 +2,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import { Box, Button, Grid, Input, InputGroup, InputRightElement, Link, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import Fatos1 from "../Fatos1";
 import InputBusca1 from "../InputBusca1";
 import StackButtons from "../StackButtons";
 
@@ -47,7 +48,7 @@ export default function Lista1({pagina,setPagina}: ILista1){
         
             <Grid  p={3} templateRows={'1fr 1fr'} gap={5}>
                 <InputBusca1/>
-                
+                <Fatos1 data={listaFatos?.data}/>
                 <StackButtons 
                     current_page={listaFatos?.current_page} 
                     first_page_url={listaFatos?.first_page_url} 
