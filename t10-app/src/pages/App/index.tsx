@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useEffect, useState } from "react";
 import {
   ChakraProvider,
   Box,
@@ -14,11 +15,16 @@ import {
   TabPanels,
   TabPanel,
 } from "@chakra-ui/react"
-import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 
+import Lista1 from "../../components/Lista1";
+import Lista2 from "../../components/Lista2";
+import api from "../../services/api";
 
 export default function App(){
 
+  const [paginaLista1, setPaginaLista1]= useState("https://catfact.ninja/facts?page=1");
+  
   return(
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
@@ -31,10 +37,10 @@ export default function App(){
             </TabList>
             <TabPanels>
               <TabPanel>
-                <p>Lista 1</p>
+                <Lista1 pagina={paginaLista1} setPagina={setPaginaLista1}/>
               </TabPanel>
               <TabPanel>
-                <p>Lista 2</p>
+                <Lista2 />
               </TabPanel>
             </TabPanels>
           </Tabs>
