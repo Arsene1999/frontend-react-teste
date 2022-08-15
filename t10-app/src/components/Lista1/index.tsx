@@ -1,7 +1,8 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { Box, Button, Grid, Link, Stack } from "@chakra-ui/react";
+import { Box, Button, Grid, Input, InputGroup, InputRightElement, Link, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import InputBusca1 from "../InputBusca1";
 import StackButtons from "../StackButtons";
 
 interface ILista1{
@@ -31,6 +32,7 @@ interface ICards{
 export default function Lista1({pagina,setPagina}: ILista1){
 
     const [listaFatos, setListaFatos] = useState<ICards>();
+    const [tamanhoFato, setTamanhoFato] = useState(3000);
 
     useEffect(() => {
         api.get(`${pagina}`)
@@ -43,7 +45,8 @@ export default function Lista1({pagina,setPagina}: ILista1){
 
     return (
         
-            <Grid  p={3} templateRows={'1fr 50px'}>
+            <Grid  p={3} templateRows={'1fr 1fr'} gap={5}>
+                <InputBusca1/>
                 
                 <StackButtons 
                     current_page={listaFatos?.current_page} 
