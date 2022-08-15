@@ -1,5 +1,5 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { Button, Stack } from "@chakra-ui/react";
+import { Button, Center, Stack, Wrap, WrapItem } from "@chakra-ui/react";
 
 interface IStackButtons{
     current_page: number | undefined,
@@ -19,23 +19,30 @@ interface IStackButtons{
 
 
 export default function StackButtons(props:IStackButtons){
+
+
+
     return(
         
-        <Stack direction='row' spacing={4}>
-            <Button  colorScheme='teal' variant='solid'>
-                <ArrowLeftIcon/>
-            </Button>
-            {props?.links?.map(link => (
-                
-                <Button  colorScheme='teal' variant='solid' key={link.label} onClick={() =>props.setPagina(link?.url)}>
-                    {link.label}
-                </Button>
+        <Wrap  direction='row' spacing={4} display='flex' justifyContent='center'>
             
+            {props?.links?.map(link => (
+                <WrapItem>
+                    <Center>
+                        <Button     	
+                            colorScheme='teal' 
+                            variant={link.active ? 'solid' : 'outline'} 
+                            key={link.label} 
+                            onClick={() =>props.setPagina(link?.url)}
+                        >
+                            {link.label}
+                        </Button>
+                    </Center>
+                    
+                </WrapItem>
             ))}
-            <Button colorScheme='teal' variant='solid'>
-                <ArrowRightIcon/>
-            </Button>
-        </Stack>
+            
+        </Wrap >
         
     );
 }

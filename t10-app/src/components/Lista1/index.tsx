@@ -1,5 +1,5 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { Button, Link, Stack } from "@chakra-ui/react";
+import { Box, Button, Grid, Link, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import StackButtons from "../StackButtons";
@@ -42,16 +42,21 @@ export default function Lista1({pagina,setPagina}: ILista1){
 
 
     return (
-        <StackButtons 
-            current_page={listaFatos?.current_page} 
-            first_page_url={listaFatos?.first_page_url} 
-            from={listaFatos?.from} 
-            last_page={listaFatos?.last_page} 
-            last_page_url={listaFatos?.last_page_url} 
-            links={listaFatos?.links} 
-            next_page_url={listaFatos?.next_page_url} 
-            per_page={listaFatos?.per_page}
-            setPagina={setPagina} 
-            />
+        
+            <Grid  p={3} templateRows={'1fr 50px'}>
+                
+                <StackButtons 
+                    current_page={listaFatos?.current_page} 
+                    first_page_url={listaFatos?.first_page_url} 
+                    from={listaFatos?.from} 
+                    last_page={listaFatos?.last_page} 
+                    last_page_url={listaFatos?.last_page_url} 
+                    links={listaFatos?.links} 
+                    next_page_url={listaFatos?.next_page_url} 
+                    per_page={listaFatos?.per_page}
+                    setPagina={setPagina} 
+                    />
+            </Grid>
+    
     );
 }
