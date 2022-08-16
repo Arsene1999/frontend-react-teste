@@ -29,7 +29,7 @@ export default function Lista1({guardalista1,handleAddFato}: ILista1){
         api.get(`https://catfact.ninja/fact?max_length=${tamanhoFato}`)
             .then(response => {
                 setListaFatos(response.data);
-                console.log(response);
+                //console.log(response);
                 if(response.data.length > 0){
                     setFlag(true);
                 }else{

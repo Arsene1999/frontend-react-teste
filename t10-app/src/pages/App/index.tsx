@@ -31,7 +31,6 @@ export default function App(){
   
   const [guardalista1, setGuardaLista1] = useState<IDataLista1[]>([]);
   const [guardalista2, setGuardaLista2] = useState<IDataLista1[]>([]);
-  const [paginaLista2, setPaginaLista2]= useState("https://catfact.ninja/facts?max_length=30&limit=2");
   
   function handleAddFato(novoItem : IDataLista1){
       setGuardaLista1([...guardalista1, novoItem]);
@@ -49,10 +48,10 @@ export default function App(){
           <Tabs isFitted variant='enclosed'>
             <TabList mb='1em'>
               <Tab>
-                <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Lista 1</Text>  
+                <Text fontSize='2xl' style={{paddingRight:'1rem'}}>Lista 1</Text>  
               </Tab>
               <Tab>
-                <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Lista 2</Text>  
+                <Text fontSize='2xl' style={{paddingRight:'1rem'}}>Lista 2</Text>  
               </Tab>
             </TabList>
             <TabPanels>
@@ -64,8 +63,6 @@ export default function App(){
               </TabPanel>
               <TabPanel>
                 <Lista2 
-                  pagina={paginaLista2} 
-                  setPagina={setPaginaLista2} 
                   handleAddFato={handleAddFato2}
                 />
               </TabPanel>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import Fatos1 from "../Fatos1";
 import InputBusca1 from "../InputBusca1";
+import InputBusca2 from "../InputBusca2";
 import StackButtons from "../StackButtons";
 
 interface IDataLista1{
@@ -10,8 +11,6 @@ interface IDataLista1{
     lenght: number
 }
 interface ILista2{
-    pagina: string,
-    setPagina( valor: string):void,
     handleAddFato(novoItem: IDataLista1): void
 }
 
@@ -35,33 +34,56 @@ interface ICards{
 }
 
 
-export default function Lista2({pagina,setPagina, handleAddFato}: ILista2){
+export default function Lista2({ handleAddFato }: ILista2){
     
     const [listaFatos, setListaFatos] = useState<ICards>();
-    const [tamanhoFato, setTamanhoFato] = useState(0);
+    const [requisicao, setRequisicao] = useState("https://catfact.ninja/facts");
+    const [tamanhoFato, setTamanhoFato] = useState("");
+    const [quantidadeFatos, setQuantidadeFatos] = useState("");
+    const [flag, setFlag] = useState(false);
     const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)');
     const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
 
-    useEffect(() => {
-        api.get(`${pagina}`)
-                        .then(response => { 
-                            setListaFatos(response.data);
-                            console.log(listaFatos);
-                        });
-      },[pagina]);
+    function handleFactSearch(){
+        api.get(`${requisicao}?max_length=${tamanhoFato}&limit=${quantidadeFatos} `)
+            .then(response => {
+                setListaFatos(response.data);
+                //console.log(response);
+                if(response.data.length > 0){
+                    setFlag(true);
+                }else{
+                    setFlag(false);
+                }
+            });
+    }
 
-    
-    
+    function handleFactSearch2(response: string){
+        api.get(`${response}&max_length=${tamanhoFato}&limit=${quantidadeFatos} `)
+            .then(response => {
+                setListaFatos(response.data);
+                console.log(response);
+            });
+        setRequisicao(response);
+        console.log(response);
+    }
+
     return (
         <Grid  p={3}  gap={5}>
-                <Text fontSize='5xl'>Fatos</Text>
+                <InputBusca2 
+                    tamanhoFato={tamanhoFato} 
+                    setTamanhoFato={setTamanhoFato}
+                    quantidadeFatos={quantidadeFatos}
+                    setQuantidadeFatos={setQuantidadeFatos}
+                    handleFactSearch={handleFactSearch}
+                />
                 <Grid templateColumns={isLargerThan1280 
                                             ? '1fr 1fr 1fr' 
                                             : isLargerThan600   ? '1fr 1fr' 
                                                                 : '1fr'}>
-                    {listaFatos?.data.map( dados => (
+                    {listaFatos?.data.map((dados, index) => (
                         <>
-                           <Fatos1 
+                           <Fatos1
+                                key={index} 
                                 fact={dados.fact} 
                                 lenght={dados.lenght} 
                                 handleAddFato={handleAddFato}
@@ -81,7 +103,7 @@ export default function Lista2({pagina,setPagina, handleAddFato}: ILista2){
                     links={listaFatos?.links} 
                     next_page_url={listaFatos?.next_page_url} 
                     per_page={listaFatos?.per_page}
-                    setPagina={setPagina} 
+                    handleFactSearch2={handleFactSearch2}
                     />
             </Grid>
     );
