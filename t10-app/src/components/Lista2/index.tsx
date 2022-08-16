@@ -5,9 +5,14 @@ import Fatos1 from "../Fatos1";
 import InputBusca1 from "../InputBusca1";
 import StackButtons from "../StackButtons";
 
+interface IDataLista1{
+    fact: string,
+    lenght: number
+}
 interface ILista2{
     pagina: string,
-    setPagina( valor: string):void
+    setPagina( valor: string):void,
+    handleAddFato(novoItem: IDataLista1): void
 }
 
 interface ICards{
@@ -30,7 +35,7 @@ interface ICards{
 }
 
 
-export default function Lista2({pagina,setPagina}: ILista2){
+export default function Lista2({pagina,setPagina, handleAddFato}: ILista2){
     
     const [listaFatos, setListaFatos] = useState<ICards>();
     const [tamanhoFato, setTamanhoFato] = useState(0);
@@ -56,9 +61,15 @@ export default function Lista2({pagina,setPagina}: ILista2){
                                                                 : '1fr'}>
                     {listaFatos?.data.map( dados => (
                         <>
-                            <Fatos1 fact={dados.fact} lenght={dados.lenght}/>
+                           <Fatos1 
+                                fact={dados.fact} 
+                                lenght={dados.lenght} 
+                                handleAddFato={handleAddFato}
+                                addOn={true}
+                            />
                         </>
                     ))}
+                    
                 </Grid>
                 
                 <StackButtons 

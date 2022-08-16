@@ -21,10 +21,26 @@ import Lista1 from "../../components/Lista1";
 import Lista2 from "../../components/Lista2";
 import api from "../../services/api";
 
-export default function App(){
 
+interface IDataLista1{
+  fact: string,
+  lenght: number
+}
+
+export default function App(){
+  
+  const [guardalista1, setGuardaLista1] = useState<IDataLista1[]>([]);
+  const [guardalista2, setGuardaLista2] = useState<IDataLista1[]>([]);
   const [paginaLista2, setPaginaLista2]= useState("https://catfact.ninja/facts?max_length=30&limit=2");
   
+  function handleAddFato(novoItem : IDataLista1){
+      setGuardaLista1([...guardalista1, novoItem]);
+  }
+
+  function handleAddFato2(novoItem : IDataLista1){
+    setGuardaLista2([...guardalista2, novoItem]);
+}
+
   return(
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
@@ -32,15 +48,26 @@ export default function App(){
           <ColorModeSwitcher justifySelf="flex-end" />
           <Tabs isFitted variant='enclosed'>
             <TabList mb='1em'>
-              <Tab>Lista 1 </Tab>
-              <Tab>Lista 2</Tab>
+              <Tab>
+                <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Lista 1</Text>  
+              </Tab>
+              <Tab>
+                <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Lista 2</Text>  
+              </Tab>
             </TabList>
             <TabPanels>
               <TabPanel>
-                <Lista1 />
+                <Lista1 
+                  guardalista1={guardalista1!} 
+                  handleAddFato={handleAddFato}
+                />
               </TabPanel>
               <TabPanel>
-                <Lista2 pagina={paginaLista2} setPagina={setPaginaLista2}/>
+                <Lista2 
+                  pagina={paginaLista2} 
+                  setPagina={setPaginaLista2} 
+                  handleAddFato={handleAddFato2}
+                />
               </TabPanel>
             </TabPanels>
           </Tabs>

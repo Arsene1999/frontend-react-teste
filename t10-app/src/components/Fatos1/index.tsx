@@ -1,15 +1,19 @@
 import { Stack, Button, Box, Grid, useMediaQuery } from "@chakra-ui/react";
 
 
+interface IDataLista1{
+    fact: string,
+    lenght: number
+}
 interface IFatos{
-    fact: string | undefined,
-    lenght: number | undefined
+    fact: string,
+    lenght: number,
+    handleAddFato(novoItem: IDataLista1): void,
+    addOn: boolean,
 }
 
-export default function Fatos1({fact,lenght}: IFatos){
+export default function Fatos1({fact, lenght, handleAddFato, addOn}: IFatos){
     
-    const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)');
-    const [isLargerThan500] = useMediaQuery('(min-width: 500px)');
 
     return (        
             <Box
@@ -30,9 +34,26 @@ export default function Fatos1({fact,lenght}: IFatos){
                     <p color="gray.500">
                     {fact}
                     </p>
-                    <Button maxWidth="100px" my={2} colorScheme='teal' >
-                    Adicionar
-                    </Button>
+                    {addOn && 
+                        (
+                            <Button 
+                                maxWidth="100px" 
+                                my={2} 
+                                colorScheme='teal' 
+                                onClick={() =>
+                                    {handleAddFato(
+                                        {
+                                            fact,
+                                            lenght
+                                        }  
+                                    )
+                                }}
+                            >
+                                Adicionar
+                            </Button>
+                        )
+                    }
+                    
                 </Stack>
             </Box>
     );

@@ -6,7 +6,11 @@ interface IInputBusca1{
     handleFactSearch(): void
 }
 
-export default function InputBusca1({tamanhoFato, setTamanhoFato,handleFactSearch}: IInputBusca1){
+export default function InputBusca1({
+                                tamanhoFato, 
+                                setTamanhoFato,
+                                handleFactSearch
+                                    }: IInputBusca1){
     
     return (
         <div style={{   
