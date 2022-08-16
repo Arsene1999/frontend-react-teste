@@ -23,7 +23,7 @@ import api from "../../services/api";
 
 export default function App(){
 
-  const [paginaLista1, setPaginaLista1]= useState("https://catfact.ninja/facts?page=1");
+  const [paginaLista2, setPaginaLista2]= useState("https://catfact.ninja/facts?max_length=30&limit=2");
   
   return(
     <ChakraProvider theme={theme}>
@@ -37,10 +37,10 @@ export default function App(){
             </TabList>
             <TabPanels>
               <TabPanel>
-                <Lista1 pagina={paginaLista1} setPagina={setPaginaLista1}/>
+                <Lista1 />
               </TabPanel>
               <TabPanel>
-                <Lista2 />
+                <Lista2 pagina={paginaLista2} setPagina={setPaginaLista2}/>
               </TabPanel>
             </TabPanels>
           </Tabs>
