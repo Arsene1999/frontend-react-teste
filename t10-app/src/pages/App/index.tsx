@@ -64,6 +64,7 @@ export default function App(){
               <TabPanel>
                 <Lista2 
                   handleAddFato={handleAddFato2}
+                  guardalista2={guardalista2!} 
                 />
               </TabPanel>
             </TabPanels>
