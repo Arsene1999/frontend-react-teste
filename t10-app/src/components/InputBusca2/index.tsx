@@ -55,14 +55,14 @@ export default function InputBusca2({
                 </InputGroup>
 
                 <Button     
-                            width='100%'
-                            maxWidth='600px'	
-                            colorScheme='teal' 
-                            size='lg'
-                            onClick={handleFactSearch}
-                            >
-                            Buscar  
-                        </Button>
+                    width='100%'
+                    maxWidth='600px'	
+                    colorScheme='teal' 
+                    size='lg'
+                    onClick={handleFactSearch}
+                >
+                    Buscar  
+                </Button>
             </div>
         </>
     );
