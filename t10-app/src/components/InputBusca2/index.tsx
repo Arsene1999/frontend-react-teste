@@ -28,25 +28,25 @@ export default function InputBusca2({
                 templateColumns={isLargerThan600   ? '1fr 1fr' : '1fr'}
                 gap={3}
                 >
-            <InputGroup size='lg' >           
-                <Input
-                    type="number"
-                    pr='4.5rem'
-                    placeholder='Tamanho do fato'
-                    value={tamanhoFato}
-                    onChange={(event) => {setTamanhoFato(event.target.value)}}
-                />
-            </InputGroup>  
-            <InputGroup size='lg' >        
-                <Input
-                    type="number"
-                    pr='4.5rem'
-                    placeholder='Quantidade de fatos'
-                    value={quantidadeFatos}
-                    onChange={(event) => {setQuantidadeFatos(event.target.value)}}
-                />            
-            </InputGroup>
-</Grid>
+                <InputGroup size='lg' >           
+                    <Input
+                        type="number"
+                        pr='4.5rem'
+                        placeholder='Tamanho do fato'
+                        value={tamanhoFato}
+                        onChange={(event) => {setTamanhoFato(event.target.value)}}
+                    />
+                </InputGroup>  
+                <InputGroup size='lg' >        
+                    <Input
+                        type="number"
+                        pr='4.5rem'
+                        placeholder='Quantidade de fatos'
+                        value={quantidadeFatos}
+                        onChange={(event) => {setQuantidadeFatos(event.target.value)}}
+                    />            
+                </InputGroup>
+            </Grid>
             <Button     
                 width='100%'
                 leftIcon={<SearchIcon />} 

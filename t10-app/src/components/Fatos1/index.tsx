@@ -1,3 +1,4 @@
+import { AddIcon } from "@chakra-ui/icons";
 import { Stack, Button, Box, Grid, useMediaQuery } from "@chakra-ui/react";
 
 
@@ -38,7 +39,7 @@ export default function Fatos1({fact, lenght, handleAddFato, addOn, widthWanted}
                     {addOn && 
                         (
                             <Button 
-                                maxWidth="100px" 
+                                maxWidth="150px" 
                                 my={2} 
                                 colorScheme='teal' 
                                 onClick={() =>
@@ -49,6 +50,8 @@ export default function Fatos1({fact, lenght, handleAddFato, addOn, widthWanted}
                                         }  
                                     )
                                 }}
+                                leftIcon={<AddIcon/>} 
+                    
                             >
                                 Adicionar
                             </Button>

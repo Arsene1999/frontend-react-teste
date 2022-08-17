@@ -83,10 +83,16 @@ export default function Lista2({ handleAddFato, guardalista2 }: ILista2){
                         setQuantidadeFatos={setQuantidadeFatos}
                         handleFactSearch={handleFactSearch}
                     />
-                    <Grid templateColumns={isLargerThan1280 
-                                                ? '1fr 1fr 1fr' 
-                                                : isLargerThan600   ? '1fr 1fr' 
-                                                : '1fr'}>
+                    <Grid 
+                        templateColumns={
+                                        isLargerThan1280 
+                                            ? '1fr 1fr 1fr' 
+                                            : isLargerThan600   
+                                                        ? '1fr 1fr' 
+                                                        : '1fr'
+                                        }
+                    >
+
                         {listaFatos?.data.map((dados, index) => (
                             <>
                             <Fatos1
