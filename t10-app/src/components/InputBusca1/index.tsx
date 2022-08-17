@@ -1,3 +1,4 @@
+import { SearchIcon } from "@chakra-ui/icons";
 import { InputGroup, Input, InputRightElement, Button, Text } from "@chakra-ui/react";
 
 interface IInputBusca1{
@@ -30,11 +31,12 @@ export default function InputBusca1({
                     onChange={(event) => {setTamanhoFato(event.target.value)}}
                 />
                         
-                <InputRightElement width='4.5rem'>
+                <InputRightElement width='6.5rem'>
                     <Button     	
                         colorScheme='teal' 
                         size='lg'
                         onClick={handleFactSearch}
+                        leftIcon={<SearchIcon />}
                         >
                         Buscar  
                     </Button>

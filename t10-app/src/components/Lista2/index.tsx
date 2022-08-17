@@ -75,7 +75,7 @@ export default function Lista2({ handleAddFato, guardalista2 }: ILista2){
             <Novosfatos novoFato={novoFato} setNovoFato={() =>setNovoFato(!novoFato)}/>
             {novoFato && (
                 <>
-                    <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Busca por Fatos</Text>
+
                     <InputBusca2 
                         tamanhoFato={tamanhoFato} 
                         setTamanhoFato={setTamanhoFato}
