@@ -27,11 +27,16 @@ A aplicação é composta por:
 ## :white_check_mark: Feito 
 
 
--:white_check_mark: Na primeira parte o usuário busca fato por fato para compor a listagem. 
+-:white_check_mark: Na primeira parte o usuário busca fato por fato para compor a listagem.
+
 -:white_check_mark: Na segunda parte o usário busca uma listagem pronta de fatos. Porém, a página terá que ter scroll infinito.
+
 -:white_check_mark: Em ambas as visualizações, os itens da lista viram CARDs na visualização mobile.
+
 -:white_check_mark: Utilizar chakra-ui.
--:white_check_mark: Utilizar React.js com Typescript.
+
+-:white_check_mark: Utilizar React.js com Typescript.\
+
 -:hammer_and_wrench: Documentação
 
 ## Executando a aplicação 
