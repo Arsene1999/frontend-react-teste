@@ -1,5 +1,5 @@
 import { SearchIcon } from "@chakra-ui/icons";
-import { InputGroup, Input, InputRightElement, Button, Text } from "@chakra-ui/react";
+import { InputGroup, Input, InputRightElement, Button, Text, Grid } from "@chakra-ui/react";
 
 interface IInputBusca1{
     tamanhoFato: string,
@@ -14,10 +14,11 @@ export default function InputBusca1({
                                     }: IInputBusca1){
     
     return (
-        <div style={{   
+        <Grid 
+            gap={6}
+            style={{   
                 display: 'flex', 
-                justifyContent: 'center', 
-                flexWrap:'wrap'
+                justifyContent: 'center',      
                 }}
             >
             <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Busca por Fatos</Text>
@@ -42,6 +43,6 @@ export default function InputBusca1({
                     </Button>
                 </InputRightElement>
             </InputGroup>   
-        </div>
+        </Grid>
     );
 }
