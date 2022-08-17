@@ -43,6 +43,27 @@ export default function Lista1({guardalista1,handleAddFato}: ILista1){
     return (
         
         <Grid  p={3}  gap={5}>
+            <InputBusca1 
+                tamanhoFato={tamanhoFato} 
+                setTamanhoFato={setTamanhoFato}
+                handleFactSearch={handleFactSearch}
+                />
+          
+            {flag && 
+                (
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                        <Fatos1 
+                            fact={listaFatos?.fact!} 
+                            lenght={listaFatos?.lenght!} 
+                            handleAddFato={handleAddFato}
+                            addOn={true}
+                            widthWanted={'600px'}
+                        />
+                    </div>
+                )
+            }  
+            
+            
             <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Fatos Selecionados</Text>  
             <Grid templateColumns={isLargerThan1280 
                                             ? '1fr 1fr 1fr' 
@@ -55,27 +76,13 @@ export default function Lista1({guardalista1,handleAddFato}: ILista1){
                                 lenght={dados.lenght} 
                                 handleAddFato={handleAddFato}
                                 addOn={false}
+                                widthWanted={'auto'}
                             />
                         </>
                     ))}
             </Grid>
 
-            <InputBusca1 
-                tamanhoFato={tamanhoFato} 
-                setTamanhoFato={setTamanhoFato}
-                handleFactSearch={handleFactSearch}
-                />
-          
-            {flag && 
-                (
-                    <Fatos1 
-                        fact={listaFatos?.fact!} 
-                        lenght={listaFatos?.lenght!} 
-                        handleAddFato={handleAddFato}
-                        addOn={true}
-                    />
-                )
-            }      
+                
         </Grid>
     
     );

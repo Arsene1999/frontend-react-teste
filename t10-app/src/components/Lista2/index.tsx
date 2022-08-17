@@ -84,6 +84,7 @@ export default function Lista2({ handleAddFato, guardalista2 }: ILista2){
                             lenght={dados.lenght} 
                             handleAddFato={handleAddFato}
                             addOn={false}
+                            widthWanted={'auto'}
                         />
                     </>
                 ))}
@@ -107,6 +108,7 @@ export default function Lista2({ handleAddFato, guardalista2 }: ILista2){
                             lenght={dados.lenght} 
                             handleAddFato={handleAddFato}
                             addOn={true}
+                            widthWanted={'auto'}
                         />
                     </>
                 ))}

@@ -10,16 +10,17 @@ interface IFatos{
     lenght: number,
     handleAddFato(novoItem: IDataLista1): void,
     addOn: boolean,
+    widthWanted: string
 }
 
-export default function Fatos1({fact, lenght, handleAddFato, addOn}: IFatos){
+export default function Fatos1({fact, lenght, handleAddFato, addOn, widthWanted}: IFatos){
     
 
     return (        
             <Box
                 p={4}
                 display={{ md: "flex" }}
-                maxWidth="auto"
+                maxWidth={widthWanted}
                 borderWidth={1}
                 borderRadius='8px'
                 margin={2}
