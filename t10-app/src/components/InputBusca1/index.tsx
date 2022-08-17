@@ -18,7 +18,8 @@ export default function InputBusca1({
             gap={6}
             style={{   
                 display: 'flex', 
-                justifyContent: 'center',      
+                justifyContent: 'center',
+                flexWrap: 'wrap'      
                 }}
             >
             <Text fontSize='4xl' style={{paddingRight:'1rem'}}>Busca por Fatos</Text>

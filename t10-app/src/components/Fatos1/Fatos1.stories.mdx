@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-//import { StoryFn } from "@storybook/react"
+import { StoryFn } from "@storybook/react"
 import { getThemingArgTypes } from "@chakra-ui/storybook-addon"
 
 import Fatos1 from "../Fatos1";
@@ -8,14 +8,10 @@ import Fatos1 from "../Fatos1";
 <Meta title="Components/Fatos1" component={Fatos1}/>
 
 # Fatos1
- 
-<Fatos1 
-    fact={"The heaviest cat on record is Himmy, a Tabby from Queensland, Australia. He weighed nearly 47 pounds (21 kg). He died at the age of 10."} 
-    lenght={135} 
-    handleAddFato={() => { console.log("OI")}}
-    addOn={false}
-/>
 
+- Componente resposável por mostrar cada fato da aplicação 
+- Dentro dele tambem está presente o  botão responsável por permitir adicionar o fato a lista de fatos 
+# Argumentos
 <ArgsTable of={Fatos1} />
 
 
